@@ -182,23 +182,23 @@ class _LinearCalendarState extends State<LinearCalendar> {
 
 
 
-MaterialButton authFormButton ({required String title ,required Function() pressed,required double height, Widget ? customWidget}){
+MaterialButton authFormButton ({required String title ,required Function() pressed,required double height, Widget ? customWidget, Color? color}){
   return  MaterialButton(
-      color: MyColors.primaryBlue,
+      color: color ?? MyColors.primaryBlue,
       minWidth: double.infinity,
       height: height,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
               Radius.circular(12))),
       onPressed: pressed,
-      child: customWidget ?? authFormButtonText(title: title));
+      child: customWidget ?? authFormButtonText(title: title,));
 }
 
-Text authFormButtonText ({required String title}){
+Text authFormButtonText ({required String title, Color? textColor}){
   return Text(
     title,
     style: TextStyle(
-        color: Colors.white,
+        color: textColor?? Colors.white,
         fontSize: 16,
         fontFamily: 'Lexend',
         fontWeight: FontWeight.normal,

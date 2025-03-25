@@ -2,6 +2,7 @@ import 'package:devhub/views/auth/verification_screen.dart';
 import 'package:flutter/cupertino.dart';
 import'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../utils/colors.dart';
@@ -51,7 +52,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         children:[
                           TextSpan(
                             text: "Forgot Password 🤔",
-                            style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: MyColors.primaryBlack, fontWeight: FontWeight.w600, fontSize: 28, fontFamily: 'Lexend'),
+                            style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: MyColors.primaryBlack, fontWeight: FontWeight.w600, fontSize: 26.sp, fontFamily: 'Lexend'),
                           ),
                         ]
                     ),
@@ -78,7 +79,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 ),
 
                 SizedBox(
-                  height: 16,
+                  height: 16.h,
                 ),
 
 
@@ -92,7 +93,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                     onTap: () => setState(() => selectedIndex = 0),
                   ),
                 ),
-                const SizedBox(height: 16),
+                SizedBox(height: 16.h),
                 Container(
                   margin: EdgeInsets.only(left: 20, right: 20),
                   child: buildSelectorCard(
@@ -106,7 +107,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               ],
             ),
             SizedBox(
-              height: 20,
+              height: h*0.12,
             ),
 
           ],
@@ -136,7 +137,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.all(14),
+        padding:  EdgeInsets.all(12.w),
         decoration: BoxDecoration(
           //color: isSelected ? MyColors.primaryBlue.withOpacity(0.1) : Colors.white,
           color: Colors.white,
@@ -157,14 +158,14 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         child: Row(
           children: [
             Container(
-              padding: const EdgeInsets.all(12),
+              padding:  EdgeInsets.all(10.w),
               decoration: BoxDecoration(
                 color: isSelected ? MyColors.primaryBlue : Colors.grey.shade200,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(icon, color: isSelected ? Colors.white : Colors.black54),
             ),
-            const SizedBox(width: 12),
+             SizedBox(width: 12.w),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -172,7 +173,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   Text(
                     title,
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 15.sp,
                       fontWeight: FontWeight.bold,
                       color: MyColors.primaryBlack,
                       fontFamily: 'Lexend'
@@ -182,7 +183,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   Text(
                     subtitle,
                     style: TextStyle(
-                      fontSize: 13,
+                      fontSize: 13.sp,
                       color: MyColors.primaryBlack,
                       fontFamily: 'Lexend'
                     ),
@@ -196,12 +197,12 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: isSelected ? MyColors.primaryBlue : Colors.grey,
-                  width: 2,
+                  width: 2.w,
                 ),
               ),
               child: isSelected
-                  ? Icon(Icons.circle, color: MyColors.primaryBlue, size: 20)
-                  : Icon(Icons.circle, color: MyColors.appGrey, size: 20),
+                  ? Icon(Icons.circle, color: MyColors.primaryBlue, size: 16.sp)
+                  : Icon(Icons.circle, color: MyColors.appGrey, size: 16.sp),
             ),
           ],
         ),

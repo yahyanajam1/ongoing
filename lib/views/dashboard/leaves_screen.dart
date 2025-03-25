@@ -1,5 +1,9 @@
 import 'package:devhub/utils/widgets.dart';
+import 'package:devhub/views/secondary/apply_leave_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../utils/colors.dart';
@@ -18,10 +22,10 @@ class _LeavesScreenState extends State<LeavesScreen> with SingleTickerProviderSt
   late TabController _tabController;
 
   final List<Map<String, dynamic>> leaveData = [
-    {"title": "Leave Balance", "value": "20", "color": Colors.blue},
-    {"title": "Leave Approved", "value": "2", "color": Colors.green},
-    {"title": "Leave Pending", "value": "4", "color": Colors.teal},
-    {"title": "Leave Cancelled", "value": "10", "color": Colors.red},
+    {"title": "Leave\nBalance", "value": "20", "color": Colors.blue},
+    {"title": "Leave\nApproved", "value": "2", "color": Colors.green},
+    {"title": "Leave\nPending", "value": "4", "color": Colors.teal},
+    {"title": "Leave\nCancelled", "value": "10", "color": Colors.red},
   ];
 
 
@@ -38,12 +42,26 @@ class _LeavesScreenState extends State<LeavesScreen> with SingleTickerProviderSt
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
         elevation: 0,
         title: Text("All Leaves",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black)),
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'Lexend')),
+
         actions: [
-          IconButton(icon: Icon(Icons.add, color: Colors.black), onPressed: () {}),
-          IconButton(icon: Icon(Icons.tune, color: Colors.black), onPressed: () {}),
+          IconButton(icon: Container(
+            padding: EdgeInsets.all(1),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: MyColors.primaryBlack, width: 1.5)
+            ),
+            child:  Icon(Icons.add, color: Colors.black, size: 20,),), onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>ApplyLeaveScreen()));
+          }),
+          IconButton(icon: Icon(Icons.tune, color: Colors.black), onPressed: () {
+
+            filterLeaveBottomSheet(context);
+
+          }),
         ],
       ),
       body: SingleChildScrollView(
@@ -71,20 +89,24 @@ class _LeavesScreenState extends State<LeavesScreen> with SingleTickerProviderSt
 
             // Tabs Section
             Container(
+              height: 52.h,
+              margin: EdgeInsets.only(left: 20, right: 20),
               decoration: BoxDecoration(
-                color: Colors.grey[100],
-                borderRadius: BorderRadius.circular(20),
+                color: MyColors.appGrey.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(10),
               ),
               child: TabBar(
+                indicatorColor: Colors.transparent,
                 controller: _tabController,
                 labelColor: Colors.white,
-                unselectedLabelColor: Colors.black54,
+                unselectedLabelColor: MyColors.primaryBlack,
+                indicatorSize: TabBarIndicatorSize.tab,
+                labelStyle: TextStyle(fontFamily: 'Lexend', fontSize: 14),
                 indicator: BoxDecoration(
-                  color: Colors.blue,
-                  borderRadius: BorderRadius.circular(20),
-                ),
+                    borderRadius: BorderRadius.circular(10),
+                    color: MyColors.primaryBlue),
                 tabs: [
-                  Tab(text: "Upcoming"),
+                  Tab(text: "Upcoming",),
                   Tab(text: "Past"),
                   Tab(text: "Team Leave"),
                 ],
@@ -125,7 +147,7 @@ class _LeavesScreenState extends State<LeavesScreen> with SingleTickerProviderSt
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black)),
+          Text(title, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'Lexend')),
           Spacer(),
           Text(value, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: color)),
         ],
@@ -135,7 +157,7 @@ class _LeavesScreenState extends State<LeavesScreen> with SingleTickerProviderSt
   //
   Widget leaveListCard(String date, String days, String balance, String approvedBy) {
     return Container(
-      margin: EdgeInsets.only(bottom: 16),
+      margin: EdgeInsets.only(top: 8, bottom: 8, left: 20, right: 20),
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -159,9 +181,9 @@ class _LeavesScreenState extends State<LeavesScreen> with SingleTickerProviderSt
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Date", style: TextStyle(color: Colors.black54, fontSize: 12)),
+                  Text("Date", style: TextStyle(color: Colors.black54, fontSize: 12.sp, fontFamily: 'Lexend')),
                   SizedBox(height: 4),
-                  Text(date, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+                  Text(date, style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, fontFamily: 'Lexend')),
                 ],
               ),
               Container(
@@ -172,7 +194,7 @@ class _LeavesScreenState extends State<LeavesScreen> with SingleTickerProviderSt
                 ),
                 child: Text(
                   "Approved",
-                  style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+                  style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold, fontFamily: 'Lexend', fontSize: 10.sp),
                 ),
               ),
             ],
@@ -197,12 +219,13 @@ class _LeavesScreenState extends State<LeavesScreen> with SingleTickerProviderSt
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: TextStyle(color: Colors.black54, fontSize: 12)),
+        Text(title, style: TextStyle(color: Colors.black54, fontSize: 12, fontFamily: 'Lexend')),
         SizedBox(height: 4),
         Text(
           value,
           style: TextStyle(
             fontSize: 14,
+            fontFamily: 'Lexend',
             fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
           ),
         ),
@@ -210,5 +233,218 @@ class _LeavesScreenState extends State<LeavesScreen> with SingleTickerProviderSt
     );
   }
 
+  void filterLeaveBottomSheet(BuildContext context,) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24.r)),
+      ),
+      builder: (BuildContext context) {
+        return LeaveFilterBottomSheet();
+      },
+    );
+  }
 
 }
+
+
+class LeaveFilterBottomSheet extends StatefulWidget {
+  const LeaveFilterBottomSheet({super.key});
+
+  @override
+  State<LeaveFilterBottomSheet> createState() => _LeaveFilterBottomSheetState();
+}
+
+class _LeaveFilterBottomSheetState extends State<LeaveFilterBottomSheet> {
+  List<String> statusOptions = ['Approved', 'Unapproved', 'Pending'];
+  List<String> leaveTypes = ['Sick Leave', 'Planned Leave', 'Holiday'];
+  String? selectedTeamMember = 'Alexa Williams';
+
+  Map<String, bool> selectedStatus = {};
+  Map<String, bool> selectedLeaveType = {};
+
+  @override
+  void initState() {
+    super.initState();
+    for (var status in statusOptions) {
+      selectedStatus[status] = status == 'Approved';
+    }
+    for (var type in leaveTypes) {
+      selectedLeaveType[type] = type == 'Sick Leave';
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var h = MediaQuery.of(context).size.height;
+    var w = MediaQuery.of(context).size.width;
+    return Container(
+      padding: EdgeInsets.all(20.w),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _buildHeader(context),
+          _buildSection('Status', statusOptions, selectedStatus),
+          _buildSection('Leave Type', leaveTypes, selectedLeaveType),
+          _buildTeamMemberDropdown(),
+          SizedBox(height: 20.h),
+          Row(
+            children: [
+             Flexible(child:  authFormButton(
+                 title: "Reset",
+                 height: h*0.068,
+                 color: MyColors.whiteTwo,
+                 customWidget: authFormButtonText(title: "Reset", textColor: MyColors.primaryBlack),
+                 pressed: () {
+               setState(() {
+                 for (var key in selectedStatus.keys) {
+                   selectedStatus[key] = false;
+                 }
+                 for (var key in selectedLeaveType.keys) {
+                   selectedLeaveType[key] = false;
+                 }
+                 selectedTeamMember = null;
+               });
+             }),),
+              SizedBox(width: 12.w),
+              Flexible(
+                child: authFormButton(
+                    title: "Apply",
+                    height: h*0.068,
+                    color: MyColors.primaryBlue,
+                    pressed: () {
+                      Navigator.pop(context);
+
+                    }),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildHeader(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          'Filter',
+          style: TextStyle(
+            fontSize: 18.sp,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Lexend'
+          ),
+        ),
+        IconButton(
+          icon: Icon(CupertinoIcons.xmark_circle, size: 20.sp, color: MyColors.primaryBlack,),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildSection(String title, List<String> options, Map<String, bool> selectedMap) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(height: 12.h),
+        Text(
+          title,
+          style: TextStyle(
+            fontSize: 14.sp,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Lexend'
+          ),
+        ),
+        ...options.map((option) => CheckboxListTile(
+          contentPadding: EdgeInsets.zero,
+          controlAffinity: ListTileControlAffinity.leading,
+          title: Text(option, style: TextStyle(fontSize: 14.sp)),
+          value: selectedMap[option],
+          activeColor: Colors.blue,
+          onChanged: (value) {
+            setState(() {
+              selectedMap[option] = value!;
+            });
+          },
+        )),
+      ],
+    );
+  }
+
+  Widget _buildTeamMemberDropdown() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Team Member',
+          style: TextStyle(
+            fontSize: 14.sp,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Lexend'
+          ),
+        ),
+        SizedBox(height: 8.h),
+        DropdownButtonFormField<String>(
+          value: selectedTeamMember,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12.r),
+              borderSide: BorderSide(color: MyColors.primaryBlue, width: 1),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12.r),
+              borderSide: BorderSide(color: MyColors.primaryBlue, width: 1),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12.r),
+              borderSide: BorderSide(color: MyColors.primaryBlue, width: 1),
+            ),
+          ),
+          items: ['Alexa Williams', 'John Doe', 'Jane Smith']
+              .map((name) => DropdownMenuItem(
+            value: name,
+            child: Text(name, style: TextStyle(fontSize: 14.sp)),
+          ))
+              .toList(),
+          onChanged: (value) {
+            setState(() {
+              selectedTeamMember = value;
+            });
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget _buildButton(String text, Color color, Color textColor, VoidCallback onPressed) {
+    return Expanded(
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: color,
+          padding: EdgeInsets.symmetric(vertical: 14.h),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.r),
+          ),
+        ),
+        child: Text(
+          text,
+          style: TextStyle(
+            color: textColor,
+            fontSize: 14.sp,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+  }
+}
+

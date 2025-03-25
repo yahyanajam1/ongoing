@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../utils/colors.dart';
 import '../../utils/widgets.dart';
 
@@ -149,9 +149,9 @@ class _HomeScreenState extends State<HomeScreen> {
               margin: EdgeInsets.only(left: 20, right: 20),
               child: GridView.count(
                 crossAxisCount: 2,
-                crossAxisSpacing: 16,
-                mainAxisSpacing: 16,
-                childAspectRatio: 1.3,
+                crossAxisSpacing: 16.h,
+                mainAxisSpacing: 16.h,
+                childAspectRatio: 1.2.h,
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 children: [

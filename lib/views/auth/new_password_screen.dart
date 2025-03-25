@@ -1,6 +1,7 @@
 import 'package:devhub/views/dashboard/main_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../utils/colors.dart';
@@ -50,7 +51,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                             children:[
                               TextSpan(
                                 text: "Enter New Password",
-                                style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: MyColors.primaryBlack, fontWeight: FontWeight.w600, fontSize: 28, fontFamily: 'Lexend'),
+                                style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: MyColors.primaryBlack, fontWeight: FontWeight.w600, fontSize: 26.sp, fontFamily: 'Lexend'),
                               ),
                             ]
                         ),
@@ -95,7 +96,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                     passwordController,
                     validate,SizedBox()),
                 SizedBox(
-                  height: 20,
+                  height: h*0.12,
                 ),
 
               ],

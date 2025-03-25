@@ -2,6 +2,7 @@ import 'package:devhub/views/auth/new_password_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -52,7 +53,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                             children:[
                               TextSpan(
                                 text: "Enter Verification Code",
-                                style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: MyColors.primaryBlack, fontWeight: FontWeight.w600, fontSize: 28, fontFamily: 'Lexend'),
+                                style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: MyColors.primaryBlack, fontWeight: FontWeight.w600, fontSize:  26.sp, fontFamily: 'Lexend'),
                               ),
                             ]
                         ),
@@ -142,7 +143,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                   ],
                 ),
                 SizedBox(
-                  height: 20,
+                  height: h*0.12,
                 ),
 
               ],
