@@ -194,7 +194,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 margin: EdgeInsets.only(left: 20, right: 20),
               child: activityCard(Icons.login, "Check In", "10:00 am", "April 17, 2023", "On Time"),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 12),
             Container(
                 margin: EdgeInsets.only(left: 20, right: 20),
                 child: activityCard(Icons.timer, "Break In", "12:30 am", "April 17, 2023", "On Time")),
@@ -213,10 +213,10 @@ class _HomeScreenState extends State<HomeScreen> {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black12,
-            blurRadius: 6,
+            color: Colors.black.withOpacity(0.06),
+            blurRadius: 10,
             spreadRadius: 2,
-            offset: Offset(2, 2),
+            offset: Offset(2, 4),
           ),
         ],
       ),
@@ -230,7 +230,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17,fontFamily:  'Lexend')),
+                  Text(title, style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16,fontFamily:  'Lexend')),
                   Text(date, style: TextStyle(color: Colors.grey, fontSize: 13, fontFamily: 'Lexend')),
                 ],
               ),
@@ -239,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Text(time, style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold, fontFamily: 'Lexend')),
+              Text(time, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, fontFamily: 'Lexend')),
               Text(status, style: TextStyle(color: Colors.grey, fontSize: 13, fontFamily: 'Lexend')),
             ],
           ),
@@ -256,10 +256,10 @@ class _HomeScreenState extends State<HomeScreen> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black12,
-            blurRadius: 8,
-            spreadRadius: 1,
-            offset: Offset(0, 4),
+            color: Colors.black.withOpacity(0.06),
+            blurRadius: 10,
+            spreadRadius: 2,
+            offset: Offset(2, 4),
           ),
         ],
       ),
@@ -271,11 +271,11 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Icon(icon, color: Colors.blue),
               SizedBox(width: 8),
-              Text(title, style: TextStyle(fontWeight: FontWeight.normal, fontSize: 15, fontFamily: 'Lexend')),
+              Text(title, style: TextStyle(fontWeight: FontWeight.normal, fontSize: 14, fontFamily: 'Lexend')),
             ],
           ),
           SizedBox(height: 10),
-          Text(time, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, fontFamily: 'Lexend')),
+          Text(time, style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold, fontFamily: 'Lexend')),
           SizedBox(height: 4),
           Text(subtitle, style: TextStyle(color: Colors.grey, fontSize: 14, fontFamily: 'Lexend')),
         ],

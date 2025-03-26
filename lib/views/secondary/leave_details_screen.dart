@@ -27,7 +27,7 @@ class _LeaveDetailsScreenState extends State<LeaveDetailsScreen> {
             leading: IconButton(onPressed: (){
               Navigator.pop(context);
             }, icon: Icon(Icons.arrow_back_ios, color: MyColors.primaryBlack,)),
-            title:  Text("Leave Details",
+            title:  Text("Jane Hawkins",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black, fontFamily: 'Lexend')),
             centerTitle: true,
           ),

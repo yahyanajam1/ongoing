@@ -42,13 +42,17 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
               TextFormField(
                 controller: titleController,
                 decoration: InputDecoration(
-                  labelText: 'Username',
+                  labelText: 'Title',
                   labelStyle: TextStyle(color: Colors.grey),
                   floatingLabelBehavior: FloatingLabelBehavior.auto,
                   floatingLabelAlignment: FloatingLabelAlignment.start,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide(color: MyColors.primaryBlue),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: MyColors.primaryBlue, width: 1.5),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -61,13 +65,40 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
               TextFormField(
                 controller: titleController,
                 decoration: InputDecoration(
-                  labelText: 'Username',
+                  labelText: 'Leave Type',
                   labelStyle: TextStyle(color: Colors.grey),
                   floatingLabelBehavior: FloatingLabelBehavior.auto,
                   floatingLabelAlignment: FloatingLabelAlignment.start,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide(color: MyColors.primaryBlue),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: MyColors.primaryBlue, width: 1.5),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: MyColors.primaryBlue, width: 1.5),
+                  ),
+                  contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+                ),
+              ),
+              SizedBox(height: 20),
+              TextFormField(
+                controller: titleController,
+                decoration: InputDecoration(
+                  labelText: 'Contact Number',
+                  labelStyle: TextStyle(color: Colors.grey),
+                  floatingLabelBehavior: FloatingLabelBehavior.auto,
+                  floatingLabelAlignment: FloatingLabelAlignment.start,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: MyColors.primaryBlue),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: MyColors.primaryBlue, width: 1.5),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -80,13 +111,17 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
               TextFormField(
                 controller: titleController,
                 decoration: InputDecoration(
-                  labelText: 'Username',
+                  labelText: 'Start Date',
                   labelStyle: TextStyle(color: Colors.grey),
                   floatingLabelBehavior: FloatingLabelBehavior.auto,
                   floatingLabelAlignment: FloatingLabelAlignment.start,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide(color: MyColors.primaryBlue),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: MyColors.primaryBlue, width: 1.5),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -99,7 +134,7 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
               TextFormField(
                 controller: titleController,
                 decoration: InputDecoration(
-                  labelText: 'Username',
+                  labelText: 'End Date',
                   labelStyle: TextStyle(color: Colors.grey),
                   floatingLabelBehavior: FloatingLabelBehavior.auto,
                   floatingLabelAlignment: FloatingLabelAlignment.start,
@@ -107,24 +142,9 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide(color: MyColors.primaryBlue),
                   ),
-                  focusedBorder: OutlineInputBorder(
+                  enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide(color: MyColors.primaryBlue, width: 1.5),
-                  ),
-                  contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 12),
-                ),
-              ),
-              SizedBox(height: 20),
-              TextFormField(
-                controller: titleController,
-                decoration: InputDecoration(
-                  labelText: 'Username',
-                  labelStyle: TextStyle(color: Colors.grey),
-                  floatingLabelBehavior: FloatingLabelBehavior.auto,
-                  floatingLabelAlignment: FloatingLabelAlignment.start,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: MyColors.primaryBlue),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -137,8 +157,10 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
 
               TextFormField(
                 controller: titleController,
+                maxLines: 5,
                 decoration: InputDecoration(
-                  labelText: 'Username',
+
+                  labelText: 'Reason For Leave',
                   labelStyle: TextStyle(color: Colors.grey),
                   floatingLabelBehavior: FloatingLabelBehavior.auto,
                   floatingLabelAlignment: FloatingLabelAlignment.start,
@@ -147,6 +169,10 @@ class _ApplyLeaveScreenState extends State<ApplyLeaveScreen> {
                     borderSide: BorderSide(color: MyColors.primaryBlue),
                   ),
                   focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide(color: MyColors.primaryBlue, width: 1.5),
+                  ),
+                  enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide(color: MyColors.primaryBlue, width: 1.5),
                   ),
