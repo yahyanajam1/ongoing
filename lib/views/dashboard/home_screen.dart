@@ -1,3 +1,4 @@
+import 'package:devhub/views/secondary/notification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -45,6 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           GestureDetector(
             onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>NotificationScreen()));
             },
             child: Container(
               height: 28,
